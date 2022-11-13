@@ -5,15 +5,10 @@ pub fn search<'a>(
     contents : &'a String, 
     term : &str,
 ) -> Vec<&'a str> {
-    let mut results = Vec::new();
-
-    for line in contents.lines() {
-        if line.contains(term) {
-            results.push(line);
-        }
-    }
-    
-    results
+    contents
+        .lines()
+        .filter(|x| x.contains(term))
+        .collect()
 }
 
 pub fn search_insens<'a>(
@@ -22,15 +17,12 @@ pub fn search_insens<'a>(
 ) -> Vec<&'a str> {
 
     let lowterm = term.to_lowercase();
-    let mut results = Vec::new();
 
-    for line in contents.lines() {
-        if line.to_lowercase().contains(&lowterm) {
-            results.push(line);
-        }
-    }
+    contents
+        .lines()
+        .filter(|x| x.to_lowercase().contains(&lowterm))
+        .collect()
 
-    results
 }
 
 pub fn run(config : parser::Config) -> Result<(), Box<dyn Error>> {
