@@ -2,7 +2,7 @@ use std::{fs, error::Error};
 pub mod parser;
 
 pub fn search<'a>(
-    contents : &'a String, 
+    contents : &'a str, 
     term : &str,
 ) -> Vec<&'a str> {
     contents
@@ -12,7 +12,7 @@ pub fn search<'a>(
 }
 
 pub fn search_insens<'a>(
-    contents : &'a String,
+    contents : &'a str,
     term : &str,
 ) -> Vec<&'a str> {
 

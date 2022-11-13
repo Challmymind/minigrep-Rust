@@ -34,15 +34,15 @@ impl Config {
         })
     }
 
-    pub fn term<'a>(&'a self) -> &'a String {
+    pub fn term(&self) -> &'_ String {
         &self.term
     }
 
-    pub fn file_path<'a>(&'a self) -> &'a String {
+    pub fn file_path(&self) -> &'_ String {
         &self.file_path
     }
 
-    pub fn ignore_case<'a>(&'a self) -> &'a bool {
+    pub fn ignore_case(&self) -> &'_ bool {
         &self.ignore_case
     }
 }
